@@ -7,6 +7,7 @@ import {
     PanResponder,
     StyleSheet,
     Animated,
+    Dimensions,
     SafeAreaView,
     Easing,
     Image,
@@ -14,7 +15,20 @@ import {
     Text,
 } from 'react-native';
 import padStart from 'lodash/padStart';
-import { Expand,Shrink } from './svgs';
+import {
+    Play,
+    Pause,
+    Back,
+    Expand,
+    Shrink,
+    Volume,
+    ErrorIcon,
+    LoaderIcon,
+    TopVignette,
+    BottomVignette
+} from './svgs';
+
+const { width }=Dimensions.get('window');
 
 export default class VideoPlayer extends Component {
     static defaultProps={
@@ -1003,10 +1017,10 @@ export default class VideoPlayer extends Component {
     renderFullscreen () {
         let source=
             this.state.isFullscreen===true
-                ? <Shrink width={'100%'} height={'100%'} />
-                :<Expand width={'100%'} height={'100%'} />;
+                ? <Shrink width={width*0.04} height={width*0.04} />
+                :<Expand width={width*0.04} height={width*0.04} />;
         return this.renderControl(
-            <Image source={source} />,
+            source,
             this.methods.toggleFullscreen,
             styles.controls.fullscreen,
         );
