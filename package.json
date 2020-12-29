@@ -20,11 +20,11 @@
     "url": "git@github.com:itsnubix/react-native-video-controls.git"
   },
   "dependencies": {
-    "lodash": "^4.16.4",
-    "react-native-svg": "^12.1.0"
+    "lodash": "^4.16.4"
   },
   "peerDependencies": {
     "react-native": ">=0.46.0",
+    "react-native-svg": "^12.1.0",
     "react-native-video": "github:thaiphamvan/react-native-video"
   },
   "devDependencies": {
