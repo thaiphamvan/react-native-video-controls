@@ -1003,8 +1003,8 @@ export default class VideoPlayer extends Component {
     renderFullscreen () {
         let source=
             this.state.isFullscreen===true
-                ? <Shrink />
-                :<Expand />;
+                ? <Shrink width={'100%'} height={'100%'} />
+                :<Expand width={'100%'} height={'100%'} />;
         return this.renderControl(
             <Image source={source} />,
             this.methods.toggleFullscreen,
@@ -1334,6 +1334,8 @@ const styles={
         },
         fullscreen: {
             flexDirection: 'row',
+            width: '10%',
+            height: '10%'
         },
         playPause: {
             position: 'relative',
