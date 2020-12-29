@@ -978,10 +978,7 @@ export default class VideoPlayer extends Component {
      */
     renderBack () {
         return this.renderControl(
-            <Image
-                source={require('./assets/img/back.png')}
-                style={styles.controls.back}
-            />,
+            <Back width={width*0.03} height={width*0.03} />,
             this.events.onBack,
             styles.controls.back,
         );
@@ -1002,10 +999,9 @@ export default class VideoPlayer extends Component {
                 <View
                     style={[styles.volume.handle,{ left: this.state.volumePosition }]}
                     {...this.player.volumePanResponder.panHandlers}>
-                    <Image
-                        style={styles.volume.icon}
-                        source={require('./assets/img/volume.png')}
-                    />
+                    <View style={styles.volume.icon}>
+                        <Volume width={width*0.03} height={width*0.03} />
+                    </View>
                 </View>
             </View>
         );
@@ -1017,8 +1013,8 @@ export default class VideoPlayer extends Component {
     renderFullscreen () {
         let source=
             this.state.isFullscreen===true
-                ? <Shrink width={width*0.04} height={width*0.04} />
-                :<Expand width={width*0.04} height={width*0.04} />;
+                ? <Shrink width={width*0.03} height={width*0.03} />
+                :<Expand width={width*0.03} height={width*0.03} />;
         return this.renderControl(
             source,
             this.methods.toggleFullscreen,
@@ -1112,10 +1108,10 @@ export default class VideoPlayer extends Component {
     renderPlayPause () {
         let source=
             this.state.paused===true
-                ? require('./assets/img/play.png')
-                :require('./assets/img/pause.png');
+                ? <Play width={width*0.03} height={width*0.03} />
+                :<Pause width={width*0.03} height={width*0.03} />;
         return this.renderControl(
-            <Image source={source} />,
+            source,
             this.methods.togglePlayPause,
             styles.controls.playPause,
         );
@@ -1184,10 +1180,9 @@ export default class VideoPlayer extends Component {
         if (this.state.error) {
             return (
                 <View style={styles.error.container}>
-                    <Image
-                        source={require('./assets/img/error-icon.png')}
-                        style={styles.error.icon}
-                    />
+                    <View style={styles.error.icon}>
+                        <ErrorIcon width={width*0.03} height={width*0.03} />
+                    </View>
                     <Text style={styles.error.text}>Video unavailable</Text>
                 </View>
             );
